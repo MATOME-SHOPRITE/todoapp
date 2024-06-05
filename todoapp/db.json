@@ -1,5 +1,10 @@
 {
   "ToDoList": [
-    
+    {
+      "id": "daff",
+      "title": "Wash",
+      "content": "Wash Clothing",
+      "priority": "High Priorty"
+    }
   ]
 }
