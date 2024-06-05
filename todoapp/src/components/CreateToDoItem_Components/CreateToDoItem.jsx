@@ -8,18 +8,45 @@ function Form(){
     const [content,setContent] = useState('')
     const [priority,setPriority] = useState('High Priorty')
 
+    const handleSubmit= function(buttonClickEvent){
+        
+
+        //prevents the page from refreshing when button is clicked
+        buttonClickEvent.preventDefault();
+
+        const ToDo ={title,content,priority}
+
+        // Using fetch API to send a POST request
+    fetch('http://localhost:5000/ToDoList', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(ToDo),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+
+        
+    }
+
 
     return <div className="create">
 
         {/* Form Name */}
 
-        <h2>Add New Note</h2>
+        <h2>Add New ToDo</h2>
 
-        <form>
+        <form onSubmit={handleSubmit}>
 
-            {/* Note Title: */}
+            {/* ToDo Title: */}
 
-            <label> Note Title </label>
+            <label> ToDo Title </label>
 
             <input
                
@@ -34,7 +61,7 @@ function Form(){
 
 
 
-            {/* Note Content */}
+            {/* ToDo Content */}
 
             <label>Content</label>
             
@@ -49,7 +76,7 @@ function Form(){
 
 
 
-            {/* Note Priority */}
+            {/* ToDo Priority */}
 
             <label> To Do List Priority</label>
 
@@ -71,7 +98,7 @@ function Form(){
 
             {/* Submit Button */}
 
-            <button></button>
+            <button>Add ToDo</button>
             
             
 
