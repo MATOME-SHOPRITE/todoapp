@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.css"
+import "./CreateToDostyles.css"
 
 function Form(){
 
@@ -98,16 +98,14 @@ function Form(){
 
             {/* Submit Button */}
 
+            
             <button>Add ToDo</button>
             
             
 
         </form>
 
-        {title}
-        {content}
-        {priority}
-
+      
         
     </div>
 
